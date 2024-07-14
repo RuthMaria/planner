@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://github.com/csorlandi/nodejs-concepts">
-    <img alt="Logo moveit" src="./public/logo.svg" width="500px" />
+    <img alt="Logo moveit" src="./frontend/public/logo.svg" width="500px" />
   </a>
 </h1>
 
@@ -35,7 +35,7 @@ Plann.er is a travel organizer where you can:
 
 ## :tv: Preview
 
-![video](./public/video.gif)
+![video](./frontend/public/video.gif)
 
 <br>
 
