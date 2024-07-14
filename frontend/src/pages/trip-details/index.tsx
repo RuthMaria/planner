@@ -6,10 +6,12 @@ import { Guests } from "./guests";
 import { Activities } from "./activities";
 import { DestinationAndDateHeader } from "./destination-and-date-header";
 import { CreateLinkModal } from "./create-link-modal";
+import { CreateInviteModal } from "./create-invite-modal";
 
 export function TripDetailsPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] = useState(false);
   const [isCreateLinkModalOpen, setIsCreateLinkModalOpen] = useState(false);
+  const [isCreateInviteModalOpen, setIsCreateInviteModalOpen] = useState(false);
 
   function openCreateActivityModal() {
     setIsCreateActivityModalOpen(true)
@@ -25,6 +27,14 @@ export function TripDetailsPage() {
 
   function closeCreateLinkModal() {
     setIsCreateLinkModalOpen(false)
+  }
+
+  function openCreateInviteModal() {
+    setIsCreateInviteModalOpen(true)
+  }
+
+  function closeCreateInviteModal() {
+    setIsCreateInviteModalOpen(false)
   }
 
   return (
@@ -50,7 +60,7 @@ export function TripDetailsPage() {
 
           <div className="w-full h-px bg-zinc-800" />
 
-          <Guests />
+          <Guests openCreateInviteModal={openCreateInviteModal}/>
         </div>
       </main>
 
@@ -63,6 +73,12 @@ export function TripDetailsPage() {
       {isCreateLinkModalOpen && (
         <CreateLinkModal 
           closeCreateLinkModal={closeCreateLinkModal}
+        />
+      )}
+
+      {isCreateInviteModalOpen && (
+        <CreateInviteModal 
+          closeCreateInviteModal={closeCreateInviteModal}
         />
       )}
     </div>
