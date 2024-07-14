@@ -31,6 +31,8 @@ Plann.er is a travel organizer where you can:
 - Define the activities that will be carried out on the days of the trip;
 - Add important links for the trip.
 
+Link to [API](https://nlw-journey.apidocumentation.com/reference).
+
 <a id="execution"></a><br>
 
 ## :tv: Preview
