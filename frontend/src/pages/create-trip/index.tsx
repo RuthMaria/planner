@@ -153,6 +153,8 @@ export function CreateTripPage() {
 
       {isConfirmTripModalOpen && (
         <ConfirmTripModal 
+          eventStartAndEndDates={eventStartAndEndDates}
+          destination={destination}
           closeConfirmTripModal={closeConfirmTripModal}
           createTrip={createTrip}
           setOwnerName={setOwnerName}
