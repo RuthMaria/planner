@@ -28,7 +28,7 @@ export function ImportantLinks({
     <div className="space-y-6">
       <h2 className="font-semibold text-xl">Links importantes</h2>
 
-    {links ? 
+    {links.length > 0 ? 
       <div className="space-y-5">
         {links.map(link => {
           return (

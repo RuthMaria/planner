@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import { format } from "date-fns";
+import { UpdateDestinationAndDateModal } from "./update-destination-and-date-header-modal";
 
 interface Trip {
   id: string;
@@ -16,6 +17,8 @@ interface Trip {
 export function DestinationAndDateHeader() {
   const { tripId } = useParams()
   const [trip, setTrip] = useState<Trip | undefined>()
+  const [isDestinationAndDateModalOpen, setIsDestinationAndDateModalOpen] = useState(false)
+
 
   useEffect(() => {
     api.get(`trips/${tripId}`).then(response => setTrip(response.data.trip))
@@ -23,6 +26,14 @@ export function DestinationAndDateHeader() {
 
   const displayedDate = trip ? format(trip.starts_at, "d' de 'LLL").concat(' até ').concat(format(trip.ends_at, "d' de 'LLL"))
   : null
+
+  function openDestinationAndDateModal() {
+    setIsDestinationAndDateModalOpen(true)
+  }
+
+  function closeDestinationAndDateModal() {
+    setIsDestinationAndDateModalOpen(false)
+  }
 
   return (
     <div className="px-4 h-16 rounded-xl bg-zinc-900 shadow-shape flex items-center justify-between">
@@ -39,11 +50,17 @@ export function DestinationAndDateHeader() {
 
           <div className="w-px h-6 bg-zinc-800" />
 
-          <Button variant="secondary">
+          <Button variant="secondary" onClick={openDestinationAndDateModal}>
             Alterar local/data
             <Settings2 className="size-5" />
           </Button>
         </div>
+
+        {isDestinationAndDateModalOpen && (
+          <UpdateDestinationAndDateModal 
+            closeDestinationAndDateModal={closeDestinationAndDateModal}
+          />
+        )}
       </div>
   )
 }
